@@ -18,19 +18,19 @@ export default {
             <h6 class="text-center pt-5">BRAND LOGOS</h6>
             <div class="container">
                 <div class="row p-5">
-                    <div class="col">
+                    <div class="col text-center">
                         <img src="../assets/images/b_logotype_6.png" alt="">
                     </div>
-                    <div class="col">
+                    <div class="col text-center">
                         <img src="../assets/images/b_logotype_7.png" alt="">
                     </div>
-                    <div class="col">
+                    <div class="col text-center">
                         <img src="../assets/images/b_logotype_1.png" alt="">
                     </div>
-                    <div class="col">
+                    <div class="col text-center">
                         <img src="../assets/images/b_logotype_2.png" alt="">
                     </div>
-                    <div class="col">
+                    <div class="col text-center">
                         <img src="../assets/images/b_logotype_3.png" alt="">
                     </div>
                 </div>
@@ -42,7 +42,7 @@ export default {
                 <div class="row align-items-center">
                     <div class="col p-5 d-flex align-items-center">
                         <span>
-                            <i class="fa-regular fa-envelope" style="color: #5b5d62;"></i>
+                            <i class="fa-regular fa-envelope fa-2xl" style="color: #5b5d62;"></i>
                         </span>
                         <h3 class="m-0">
                             Subscribe now and get special offers
@@ -220,6 +220,11 @@ export default {
                 </div>
             </div>
         </section>
+        <section class="credits text-center">
+            <p>
+                © Copyright 2023 | Theme | All Right Reserved | Powered By Pasquale101
+            </p>
+        </section>
     </footer>
 </template>
 
@@ -236,37 +241,39 @@ export default {
             display: flex;
             align-items: center;
             justify-content: center;
-            width: 40px;
-            height: 40px;
+            width: 60px;
+            height: 60px;
             margin-right: 10px;
         }
             span i {
-                font-size: 1.5rem;
+                font-size: 2rem;
             }
         h3 {
             color: white;
-            font-size: 1.2rem;
+            font-size: 1.5rem;
         }
         .row {
 
             input {
                 border-radius: 30px;
                 border: none;
+                padding: 10px 20px;
                 
             }
             input::placeholder {
-                font-size: 12px;
+                font-size: 16px;
                 padding-left: 10px;
             }
             .email-send{
-                padding: 2px 20px;
+                padding: 10px 40px;
                 border-radius: 50px;
-                font-size: 0.8rem;
+                font-size: 1.2rem;
                 color: white;
                 background-color: #427ed1;
                 border: none;
                 margin-left: 10px;
             }
+
      }
     }
     .footer-menu {
@@ -324,6 +331,9 @@ export default {
                 margin-right: 5px;
             }
         }
+        .social i {
+            cursor: pointer;
+        }
     }
     h5 {
         font-size: 0.8rem;
@@ -333,6 +343,15 @@ export default {
     }
     span {
         font-size: 0.8rem;
+    }
+
+    .credits {
+        background-color: #1d1f22;
+        p {
+            color: white;
+            padding: 40px 0;
+            margin: 0;
+        }
     }
 
     

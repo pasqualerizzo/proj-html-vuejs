@@ -24,7 +24,7 @@ export default {
                         <i class="fa-brands fa-youtube"></i>
                     </div>
                     <div class="col-auto">
-                        <nav class="navbar navbar-expand-lg">
+                        <nav class="navbar navbar-expand-lg p-0">
                             <div class="container">
                                 
                                 <div class="collapse navbar-collapse" id="navbarScroll">
@@ -148,11 +148,11 @@ export default {
         border: 1px solid lightgray;
     }
     .social {
-        padding: 20px;
         i {
             margin-right: 30px;
             font-size: 20px;
             color: #575c61;
+            cursor: pointer;
         }
     }
     .shopping-cart, .my-account {
@@ -180,5 +180,11 @@ export default {
         font-size: 0.8rem;
         padding: 10px 20px;
         margin-right: 40px;
+    }
+    .cta-shop:hover {
+        background-color: #427ed1;
+        padding: 10px 30px;
+        color: white;
+        font-size: 1.2rem;
     }
 </style>

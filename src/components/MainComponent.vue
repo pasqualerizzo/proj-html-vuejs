@@ -58,6 +58,22 @@ export default {
         image: new URL('../assets/images/blue_leather_jacket-400x520.jpg', import.meta.url).href,
         },
       ],
+
+      testimonials: [
+        {
+          image: new URL('../assets/images/man_testimonial.png', import.meta.url).href,
+          text: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Rerum necessitatibus nesciunt non nihil veritatis excepturi amet enim, quo repellat dolorem, quisquam sit perferendis deserunt velit quam culpa, cum accusantium blanditiis.',
+          name: 'Dario Pineda. Theme Fusion',
+        },
+        {
+          image: new URL('../assets/images/woman_testimonial.png', import.meta.url).href,
+          text: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Rerum necessitatibus nesciunt non nihil veritatis excepturi amet enim, quo repellat dolorem, quisquam sit perferendis deserunt velit quam culpa, cum accusantium blanditiis.',
+          name: 'Marta Pineda. Theme Fusion',
+        },
+        // Aggiungi altri testimoni se necessario
+      ],
+
+        currentTestimonialIndex: 0,
     };
   },
   methods: {
@@ -81,6 +97,10 @@ export default {
       if (this.currentSlideNewArrivals > 0) {
         this.currentSlideNewArrivals--;
       }
+    },
+
+    changeTestimonial(index) {
+        this.currentTestimonialIndex = index;
     },
   },
 };
@@ -220,7 +240,7 @@ export default {
                 </div>
             </div> 
         </section>
-        <section class="best-seller bg-white text-center p-3">
+        <section class="new-arrivals bg-white text-center p-3">
             <h3 class="mb-2 pt-5">New Arrivals</h3>
             <p class="mb-5">Must have products from our top sellers</p>
             <div class="slider-wrapper d-flex justify-content-center">
@@ -235,6 +255,307 @@ export default {
                 </button>
             </div>
         </section>
+        <section class="testimonial d-flex justify-content-center align-items-center">
+            <div class="wrapper">
+                <img :src="testimonials[currentTestimonialIndex].image" alt="">
+                <p>
+                {{ testimonials[currentTestimonialIndex].text }}
+                </p>
+                <h4>{{ testimonials[currentTestimonialIndex].name }}</h4>
+                <div class="circle-container">
+                    <span
+                        v-for="(testimonial, index) in testimonials"
+                        :key="index"
+                        class="circle"
+                        :class="{ active: index === currentTestimonialIndex }"
+                        @click="changeTestimonial(index)"
+                    ></span>
+                </div>
+            </div>
+        </section>
+        <section class="blog bg-white text-center">
+            <h3 class="mb-2 pt-5">From Our Blog</h3>
+            <p class="mb-5">The latest Classic Shop News</p>
+            <div class="container text-start">
+                <div class="row">
+                    <div class="col-4 text-center">
+                        <img src="../assets/images/post_img_12-320x202.jpg" alt="">
+                        <h6 class="mt-3">Lorem ipsum dolor sit amet.</h6>
+                        <span>
+                            September 9Th, 2023 I 0 Comments
+                        </span>
+                        <p>
+                            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Totam, officia?
+                        </p>
+                    </div>
+                    <div class="col-4 text-center">
+                        <img src="../assets/images/post_img_11-320x202.jpg" alt="">
+                        <h6 class="mt-3">Lorem ipsum dolor sit amet.</h6>
+                        <span>
+                            September 9Th, 2023 I 0 Comments
+                        </span>
+                        <p>
+                            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Totam, officia?
+                        </p>
+                    </div>
+                    <div class="col-4 text-center">
+                        <img src="../assets/images/post_img_10-320x202.jpg" alt="">
+                        <h6 class="mt-3">Lorem ipsum dolor sit amet.</h6>
+                        <span>
+                            September 9Th, 2023 I 0 Comments
+                        </span>
+                        <p>
+                            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Totam, officia?
+                        </p>
+                    </div>
+                </div>
+                
+            </div>
+            <hr>
+        </section>
+        <section class="suggested-product">
+            <div class="container">
+                <div class="row">
+                    <div class="col-3 text-black">
+                        <h5 class="mb-5">FEATURED</h5>
+                        <div class="cards d-flex justify-content-between mb-2">
+                            <div class="description">
+                                <h6>
+                                    Black Jacket
+                                </h6>
+                                <h6>
+                                    $125
+                                </h6>
+                            </div>
+                            <div class="poster">
+                                <img src="../assets/images/black_leather_jacket-120x156.jpg" alt="">
+                            </div>
+                        </div>
+                        <hr>
+                        <div class="cards d-flex justify-content-between mb-2">
+                            <div class="description">
+                                <h6>
+                                    Black Leather Jacket
+                                </h6>
+                                <div class="stars">
+                                    <i class="fa-solid fa-star" style="color: #417ac8;"></i>
+                                    <i class="fa-solid fa-star" style="color: #417ac8;"></i>
+                                    <i class="fa-solid fa-star" style="color: #417ac8;"></i>
+                                    <i class="fa-solid fa-star" style="color: #417ac8;"></i>
+                                    <i class="fa-solid fa-star" style="color: #417ac8;"></i>
+                                </div>
+                                <h6>
+                                    $200
+                                </h6>
+                            </div>
+                            <div class="poster">
+                                <img src="../assets/images/black_elegant_leather_jacket-120x156.jpg" alt="">
+                            </div>
+                        </div>
+                        <hr>
+                        <div class="cards d-flex justify-content-between">
+                            <div class="description">
+                                <h6>
+                                    Hipster Black Top
+                                </h6>
+                                <h6>
+                                    $57
+                                </h6>
+                            </div>
+                            <div class="poster">
+                                <img src="../assets/images/hipster_black_top-120x156.jpg" alt="">
+                            </div>
+                        </div>
+                        <hr>
+                    </div>
+                    <div class="col-3 text-black">
+                        <h5 class="mb-5">ON SALE</h5>
+                        <div class="cards d-flex justify-content-between mb-2">
+                            <div class="description">
+                                <h6>
+                                    Black Leather Jacket
+                                </h6>
+                                <div class="stars">
+                                    <i class="fa-solid fa-star" style="color: #417ac8;"></i>
+                                    <i class="fa-solid fa-star" style="color: #417ac8;"></i>
+                                    <i class="fa-solid fa-star" style="color: #417ac8;"></i>
+                                    <i class="fa-solid fa-star" style="color: #417ac8;"></i>
+                                    <i class="fa-solid fa-star" style="color: #417ac8;"></i>
+                                </div>
+                                <h6>
+                                    $45
+                                </h6>
+                            </div>
+                            <div class="poster">
+                                <img src="../assets/images/black_elegant_leather_jacket-120x156.jpg" alt="">
+                            </div>
+                        </div>
+                        <hr>
+                        <div class="cards d-flex justify-content-between mb-2">
+                            <div class="description">
+                                <h6>
+                                    Blue Leather Jacket
+                                </h6>
+                                <h6>
+                                    $60
+                                </h6>
+                            </div>
+                            <div class="poster">
+                                <img src="../assets/images/blue_leather_jacket-120x156.jpg" alt="">
+                            </div>
+                        </div>
+                        <hr>
+                        <div class="cards d-flex justify-content-between">
+                            <div class="description">
+                                <h6>
+                                    Modern Leather Boots
+                                </h6>
+                                <h6>
+                                    $30
+                                </h6>
+                            </div>
+                            <div class="poster">
+                                <img src="../assets/images/modern_leather_boots-120x156.jpg" alt="">
+                            </div>
+                        </div>
+                        <hr>
+                    </div>
+                    <div class="col-3 text-black">
+                        <h5 class="mb-5">TOP RATED</h5>
+                        <div class="cards d-flex justify-content-between mb-2">
+                            <div class="description">
+                                <h6>
+                                    Leather Gloves
+                                </h6>
+                                <div class="stars">
+                                    <i class="fa-solid fa-star" style="color: #417ac8;"></i>
+                                    <i class="fa-solid fa-star" style="color: #417ac8;"></i>
+                                    <i class="fa-solid fa-star" style="color: #417ac8;"></i>
+                                    <i class="fa-solid fa-star" style="color: #417ac8;"></i>
+                                    <i class="fa-solid fa-star" style="color: #417ac8;"></i>
+                                </div>
+                                <h6>
+                                    $45
+                                </h6>
+                            </div>
+                            <div class="poster">
+                                <img src="../assets/images/leather_gloves-120x156.jpg" alt="">
+                            </div>
+                        </div>
+                        <hr>
+                        <div class="cards d-flex justify-content-between mb-2">
+                            <div class="description">
+                                <h6>
+                                    Black Leather Jacket
+                                </h6>
+                                <div class="stars">
+                                    <i class="fa-solid fa-star" style="color: #417ac8;"></i>
+                                    <i class="fa-solid fa-star" style="color: #417ac8;"></i>
+                                    <i class="fa-solid fa-star" style="color: #417ac8;"></i>
+                                    <i class="fa-solid fa-star" style="color: #417ac8;"></i>
+                                    <i class="fa-solid fa-star" style="color: #417ac8;"></i>
+                                </div>
+                                <h6>
+                                    $200
+                                </h6>
+                            </div>
+                            <div class="poster">
+                                <img src="../assets/images/black_elegant_leather_jacket-120x156.jpg" alt="">
+                            </div>
+                        </div>
+                        <hr>
+                        <div class="cards d-flex justify-content-between">
+                            <div class="description">
+                                <h6>
+                                    Spring Printed Dress
+                                </h6>
+                                <div class="stars">
+                                    <i class="fa-solid fa-star" style="color: #417ac8;"></i>
+                                    <i class="fa-solid fa-star" style="color: #417ac8;"></i>
+                                    <i class="fa-solid fa-star" style="color: #417ac8;"></i>
+                                    <i class="fa-solid fa-star" style="color: #417ac8;"></i>
+                                    <i class="fa-solid fa-star" style="color: #417ac8;"></i>
+                                </div>
+                                <h6>
+                                    $47
+                                </h6>
+                            </div>
+                            <div class="poster">
+                                <img src="../assets/images/spring_printed_dress-120x156.jpg" alt="">
+                            </div>
+                        </div>
+                        <hr>
+                    </div>
+                    <div class="col-3 text-black">
+                        <h5 class="mb-5">LATEST REVIEWS</h5>
+                        <div class="cards d-flex justify-content-between mb-2">
+                            <div class="description">
+                                <h6>
+                                    Leather Gloves
+                                </h6>
+                                <div class="stars">
+                                    <i class="fa-solid fa-star" style="color: #417ac8;"></i>
+                                    <i class="fa-solid fa-star" style="color: #417ac8;"></i>
+                                    <i class="fa-solid fa-star" style="color: #417ac8;"></i>
+                                    <i class="fa-solid fa-star" style="color: #417ac8;"></i>
+                                    <i class="fa-solid fa-star" style="color: #417ac8;"></i>
+                                </div>
+                                <h6>
+                                    by Admin
+                                </h6>
+                            </div>
+                            <div class="poster">
+                                <img src="../assets/images/leather_gloves-120x156.jpg" alt="">
+                            </div>
+                        </div>
+                        <hr>
+                        <div class="cards d-flex justify-content-between mb-2">
+                            <div class="description">
+                                <h6>
+                                    Black Leather Jacket
+                                </h6>
+                                <div class="stars">
+                                    <i class="fa-solid fa-star" style="color: #417ac8;"></i>
+                                    <i class="fa-solid fa-star" style="color: #417ac8;"></i>
+                                    <i class="fa-solid fa-star" style="color: #417ac8;"></i>
+                                    <i class="fa-solid fa-star" style="color: #417ac8;"></i>
+                                    <i class="fa-solid fa-star" style="color: #417ac8;"></i>
+                                </div>
+                                <h6>
+                                    by Admin
+                                </h6>
+                            </div>
+                            <div class="poster">
+                                <img src="../assets/images/black_elegant_leather_jacket-120x156.jpg" alt="">
+                            </div>
+                        </div>
+                        <hr>
+                        <div class="cards d-flex justify-content-between">
+                            <div class="description">
+                                <h6>
+                                    Spring Printed Dress
+                                </h6>
+                                <div class="stars">
+                                    <i class="fa-solid fa-star" style="color: #417ac8;"></i>
+                                    <i class="fa-solid fa-star" style="color: #417ac8;"></i>
+                                    <i class="fa-solid fa-star" style="color: #417ac8;"></i>
+                                    <i class="fa-solid fa-star" style="color: #417ac8;"></i>
+                                    <i class="fa-solid fa-star" style="color: #417ac8;"></i>
+                                </div>
+                                <h6>
+                                    by Admin
+                                </h6>
+                            </div>
+                            <div class="poster">
+                                <img src="../assets/images/spring_printed_dress-120x156.jpg" alt="">
+                            </div>
+                        </div>
+                        <hr>
+                    </div>
+                </div>
+            </div>
+
+        </section>
         
         
     </main>
@@ -242,6 +563,9 @@ export default {
 
 <style lang="scss" scoped>
 @use "../assets/scss/partials/variables.scss" as *;
+    main {
+        overflow-x: hidden;
+    }
     .button{
         text-decoration: none;
         background-color: transparent;
@@ -252,10 +576,28 @@ export default {
         font-size: 0.8rem;
         font-weight: 400;
     }
+
+    .button:hover{
+        text-decoration: none;
+        background-color: white;
+        border-radius: 30px;
+        padding: 20px 30px;
+        border: 1px solid white;
+        color: white;
+        font-size: 1rem;
+        font-weight: 400;
+        color: black;
+        font-weight: bold;
+
+    }
     .jumbo {
         background-image: url(../assets/images/home1_slide_three_bg_2.jpg);
         background-size: cover;
         height: 500px;
+    }
+
+    h3 {
+        font-size: 50px;
     }
     .new-product {
         a {
@@ -321,8 +663,9 @@ export default {
             position: relative;
             .description{
                     position: absolute;
-                    bottom: 70px;
-                    left: 100px;
+                    bottom: 100px;
+                    left: 50%;
+                    margin-left: -125px;
                     h1 {
                         color: white;
                         font-size: 1.8rem;
@@ -342,8 +685,9 @@ export default {
             position: relative;
             .description{
                     position: absolute;
-                    bottom: 70px;
-                    left: 100px;
+                    bottom: 100px;
+                    left: 50%;
+                    margin-left: -125px;
                     h1 {
                         color: white;
                         font-size: 1.8rem;
@@ -362,9 +706,10 @@ export default {
             height: 500px;
             position: relative;
             .description{
-                    position: absolute;
-                    bottom: 70px;
-                    left: 100px;
+                position: absolute;
+                    bottom: 100px;
+                    left: 50%;
+                    margin-left: -125px;
                     h1 {
                         color: white;
                         font-size: 1.8rem;
@@ -386,10 +731,10 @@ export default {
             font-weight: bold;
         }
         .prev-btn, .next-btn {
-            width: 20px;
+            width: 30px;
             height: 40px;
             margin: 10px 0;
-            background: #ccc;
+            background: #4b78c6;
             cursor: pointer;
             color: white;
             border: none;
@@ -397,12 +742,14 @@ export default {
         .prev-btn {
             position: absolute;
             left: 20px;
-            top: 100px;
+            top: 50%;
+            margin-top: -20px;
         }
         .next-btn {
             position: absolute;
             right: 20px;
-            top: 100px;
+            top: 50%;
+            margin-top: -20px;
         }
     }
 
@@ -430,6 +777,96 @@ export default {
                 }
             }
         }
+    }
+
+    .new-arrivals {
+        .slider-wrapper {
+            position: relative;
+        }
+        h3 {
+            font-weight: bold;
+        }
+        .prev-btn, .next-btn {
+            width: 40px;
+            height: 60px;
+            margin: 10px 0;
+            background: #4b78c6;
+            cursor: pointer;
+            color: white;
+            border: none;
+        }
+        .prev-btn {
+            position: absolute;
+            left: 20px;
+            top: 50%;
+            margin-top: -30px;
+        }
+        .next-btn {
+            position: absolute;
+            right: 20px;
+            top: 50%;
+            margin-top: -30px;
+        }
+    }
+
+    .testimonial {
+        height: 500px;
+        background-image: url(../assets/images/testimonials_home_1_bg.jpg);
+        background-repeat: no-repeat;
+        background-size: cover;
+        .wrapper {
+            text-align: center;
+            max-width: 800px;
+            color: white;
+            p {
+                margin: 30px 0;
+            }
+            i {
+                font-size: 8px;
+                margin: 0 5px;
+            }
+            .circle-container {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                margin-top: 10px;
+            }
+
+            .circle {
+                display: block;
+                width: 16px;
+                height: 16px;
+                border-radius: 50%;
+                background-color: transparent;
+                border: 1px solid white;
+                margin: 0 10px;
+                margin-top: 10px;
+                cursor: pointer;
+            }
+
+            .circle.active {
+                background-color: #428cdd;
+            }
+        }
+    }
+
+    .blog {
+        .container {
+            margin-bottom: 50px;
+        }
+        h3 {
+            font-weight: bold;
+        }
+        .container {
+            h6 {
+                font-size: 22px;
+                font-weight: bold;
+            }
+        }
+    }
+
+    .suggested-product {
+        padding: 80px;
     }
 
 
